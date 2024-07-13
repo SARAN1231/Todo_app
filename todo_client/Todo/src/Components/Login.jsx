@@ -28,9 +28,11 @@ const Login = () => {
       );
       setauthuser(response.data);
       localStorage.setItem("users", JSON.stringify(response.data));
+       const initialauthuser = localStorage.getItem("users");
+      const user = JSON.parse(initialauthuser);
       toast.success("Login successful!");
       setTimeout(() => {
-        navigate("/");
+        navigate(`/${user.id}`);
       }, 2000);
     } catch (err) {
       console.log(err);
