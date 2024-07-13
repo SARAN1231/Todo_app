@@ -1,13 +1,13 @@
-import { useContext, useState } from "react";
+import {  useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Authcontext } from "./ContextProvider";
+import {  Authcontext } from "./ContextProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { setauthuser } = useContext(Authcontext);
+  const {setauthuser} = useContext(Authcontext)
   const [userdata, setuserdata] = useState({
     email: "",
     password: "",
@@ -27,6 +27,7 @@ const Login = () => {
         userdata
       );
       setauthuser(response.data);
+     
       localStorage.setItem("users", JSON.stringify(response.data));
        const initialauthuser = localStorage.getItem("users");
       const user = JSON.parse(initialauthuser);
@@ -63,7 +64,7 @@ const Login = () => {
           />
           <p className="text-sm text-gray-600">
             Don't have an account?{" "}
-            <Link to="/signup" className="text-blue-500 hover:underline">
+            <Link to="/" className="text-blue-500 hover:underline">
               Sign Up
             </Link>
           </p>

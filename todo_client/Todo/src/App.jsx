@@ -1,19 +1,23 @@
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
-import ContextProvider from "./Components/ContextProvider";
+
 import Home from "./Components/Home";
+
+import ContextProvider from "./Components/ContextProvider";
+
 
 
 const App = () => {
+ 
   return (
     <ContextProvider>
       <Router>
         <Routes>
-          <Route path="/:id" element={<Home />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/:id" element={<Home />} />
         </Routes>
       </Router>
     </ContextProvider>
